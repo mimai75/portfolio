@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farzana Akter Mim</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        /* background-image: linear-gradient(to bottom right, #ff6da2 , #ff99be, #ffc2d9, #c2e1fd, #97cbfb, #4e8bc4); */
+      }
+
+      header {
+        text-align: center;
+        padding: 10px;
+        background-color: transparent;
+        background-color: #f4f4f4;
+        /* background-image: linear-gradient(to right, #b5f3ee, #efffff, #b5f3ee); */
+
+      }
+
+      header img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+
+      section {
+        margin: 20px;
+      }
+
+      .project {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: #efffff; */
+        border: 1px solid #ccc;
+        margin: 10px;
+        display: inline-block; /* Aligns the containers side by side */
+        text-align: center;
+        line-height: 20px; /* Vertically centers the text */
+      }
+
+      h1,
+      h2 {
+        color: #333;
+      }
+
+      #bio,
+      #work {
+        background-color: #f2f2f2;
+        padding: 15px;
+      }
+
+      footer {
+        background-color: #f2f2f2;
+        text-align: center;
+        padding: 10px;
+      }
+      .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        button{
+            width: 30px;
+            height: 40px;
+            margin: 5px;
+            border: 0;
+            outline: 0;
+            box-shadow: -8px -8px 15px rgba(255, 255,255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+            background: transparent;
+            border-radius: 0px 10px 0px 10px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: hsl(0, 0%, 95%);
+            
+        }
+        button:active{
+            background-color: hsl(0, 0%, 100%);
+        }
+        #display{
+            text-align: right;
+            padding: 5px;
+            margin: 10px 10px;
+            border: 0;
+            outline: 0;
+            box-shadow: -8px -8px 15px rgba(255, 255,255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+            background: transparent;
+            border-radius: 0px 10px 0px 10px;
+        }
+        .operator{
+            color: teal;
+        }
+        .operator:hover{
+            color: #33ffd8;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="mim.jpg" />
+      <h1>Farzana Akter Mim</h1>
+      <p>Frontend Developer | Designer | Tech Enthusiast</p>
+    </header>
+    <section id="bio">
+      <h2>About Me</h2>
+      <p>I want to face difficult challenges and gather experience to established in life. I want to be a creative engineer and good trustable person. </p>
+    </section>
+    <section id="work">
+      <h2>My Work</h2>
+      <div class="project" id="project1">
+        <div class="card">
+        <input type="text" id="display" readonly/>
+        <div class="buttons">
+            <div>
+                <button onclick="appendToDisplay('7')">7</button>
+                <button onclick="appendToDisplay('8')">8</button>
+                <button onclick="appendToDisplay('9')">9</button>
+                <button class="operator" onclick="appendToDisplay('+')">+</button>
+            </div>
+            <div>
+                <button onclick="appendToDisplay('4')">4</button>
+                <button onclick="appendToDisplay('5')">5</button>
+                <button onclick="appendToDisplay('6')">6</button>
+                <button class="operator" onclick="appendToDisplay('-')">-</button>
+            </div>
+            <div>
+                <button onclick="appendToDisplay('1')">1</button>
+                <button onclick="appendToDisplay('2')">2</button>
+                <button onclick="appendToDisplay('3')">3</button>
+                <button class="operator" onclick="appendToDisplay('*')">*</button>
+            </div>
+            <div>
+                <button onclick="appendToDisplay('.')">.</button>
+                <button onclick="appendToDisplay('0')">0</button>
+                <button onclick="appendToDisplay('00')">00</button>
+                <button class="operator" onclick="appendToDisplay('/')">/</button>
+            </div>
+            <div>
+                <button class="operator" onclick="clearDisplay()" style="width: 40px;">AC</button>
+                <button class="operator" onclick="deleteLetter()" style="width: 40px;">DE</button>
+                <button class="operator" onclick="calculate()" style="width: 55px;">=</button>
+            </div>
+        </div>
+
+    </div>
+    
+      </div>
+      
+    </section>
+    <footer>
+      <p>Contact me at mimfar456@gmail.com</p>
+    </footer>
+    <script>
+
+        var display = document.getElementById("display");
+
+        function appendToDisplay(num) {
+            display.value += num;
+        }
+
+        function clearDisplay() {
+            display.value = "";
+        }
+
+        function deleteLetter() {
+            display.value = display.value.slice(0,-1);
+        }
+
+        function calculate() {
+            try{
+                display.value = eval(display.value);
+            }
+            catch(err){
+                display.value = "Error";
+            }
+        }
+    </script>
+  </body>
+</html>
